@@ -1,0 +1,10 @@
+
+
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+1. Privision EC2 instance of Web Service Instance in Private Subnet. Configure Security Group only allow access http on port 5000 from ALB.
+2. Deattch EIP from Web server instance.
+3. Create a bastion host, configure SG of Web Service Instance to allow ssh only from bastion host.
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+1. Configure The IAM Role 'InstanceRole' to allow access free_recipe bucket only instead of full permission.
+2. Configure Secret Recipe Bucket policy to only allow priveleged busniess user IAM Role for read & write.

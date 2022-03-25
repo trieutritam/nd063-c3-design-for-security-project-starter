@@ -1,0 +1,31 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+Checkov: https://www.checkov.io/
+
+### Example vulnerability
+Example of Checkov rules:
+- CKV_AWS_24: Ensure no security groups allow ingress from 0.0.0.0:0 to port 22
+- CKV_AWS_19: Ensure the S3 bucket has server-side-encryption enabled
+- CKV_AWS_63: Ensure no IAM policies documents allow “*” as a statement’s actions
+
+##Scan AMI’s or containers for OS vulnerabilities
+Dagda: https://github.com/eliasgranderubio/dagda/
+Anchore: https://anchore.com/
+
+### Example vulnerability
+- Known vulnerabilities CVE-XXXX-YYYYY. E.g:
+    + https://nvd.nist.gov/vuln/detail/CVE-2017-18017
+    (The tcpmss_mangle_packet function in net/netfilter/xt_TCPMSS.c in the Linux kernel before 4.11, 
+    and 4.9.x before 4.9.36, allows remote attackers to cause a denial of service (use-after-free and 
+    memory corruption) or possibly have unspecified other impact by leveraging the presence of xt_TCPMSS 
+    in an iptables action.)
+
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+- AWS Inspector
+
+### Example vulnerability
+- Not enable encryption
+- No encryption volumes
+- Not allow SSH from 0.0.0.0

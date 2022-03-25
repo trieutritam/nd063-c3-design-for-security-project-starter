@@ -1,0 +1,24 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+# 1: 
+- Issue: Port range 0 to 65535 is reachable from an Internet Gateway
+- Remediate: 
+    + Restrict access to your instance by modifying the Security Groups or ACLs in the network path.
+    + Or move the instance to Private subnet.
+
+#2:
+- Port 22 is reachable from an Internet Gateway
+- Remediate: 
+    + Restrict access to your instance by modifying the Security Groups or ACLs in the network path.
+
+#3:
+- Port 80 is reachable from an Internet Gateway
+- Remediate:
+    + Restrict access to your instance by modifying the Security Groups or ACLs in the network path.
+
+#4:
+- Port 5000 is reachable from an Internet Gateway
+- Remediate:
+    + Restrict access to your instance by modifying the Security Groups or ACLs in the network path.

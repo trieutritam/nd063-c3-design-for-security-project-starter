@@ -1,0 +1,17 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+
+I've research the documentation here: 
+[https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-ec2.html#unauthorizedaccess-ec2-sshbruteforce]
+
+
+The GuardDuty detect the SSH brute force attack, including:
+- Source of the attack.
+- Target of the attack.
+- Some information related to network.
+- Involved Instances.
+
+We can detect the source/target of the attack by checking the detail of GuardDuty Finding:
+=> Resource affected/ Resource role: ACTOR
+=> Resource affected/ Resource role: TARGET

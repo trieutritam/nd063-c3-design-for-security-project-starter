@@ -1,0 +1,26 @@
+# Poor practice 1
+- Description: Web Service Instance should be provisioned in the Private Subnet instead of Public Subnet.
+- Reason: The ALB is forwarding the request to Web Service Instance, therefore it is not neccessary to public this instance.
+- Solution: 
+    + Provision Web Service instance in Private Subnet and only accept connection from ALB.
+    + Web Service Instance can connect to Public S3 via NAT Gateway.
+
+# Poor practice 2
+- Description: The Secret Recipe S3 bucket is not enable Versioning and Server-Side Encryption.
+- Reason: We need to store the secret information in secure way to prevent unauthorized access.
+- Solution:
+    + Enable versioning and Server-Side encryption by default.
+
+# Poor practice 3:
+- Description: The policy "InstanceRolePolicy-C3" is not least privileged.
+- Reason: Currently it is assign Full permission to "InstanceRole".
+- Solution: Only assign GetObject permission to InstanceRole since the Web Service Instance only need to read the recipe.
+
+# Poor practice 4:
+- Description: The security group "WebAppSG" is allow connection from everywhere.
+- Reason: Currently it is configured allow '0.0.0.0/0' with ports: 22, 5000, 80, <all traffic>
+- Solution:
+    + Remove the rule All Traffic.
+    + Denied port 80.
+    + Allow port 5000 from Security Group of ALB only.
+    + Denied 22.
